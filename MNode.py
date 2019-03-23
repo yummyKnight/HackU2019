@@ -1,4 +1,4 @@
 class MNode:
-    form = str()
+    type = str()
     arrayOfMachine = []
 
