@@ -1,17 +1,22 @@
 import Order
 import math
+import MNode
 
 
 class Claster:
     Order_arr = []
 
-    def __init__(self):
-        pass
+    def __init__(self, order_arr):
+        self.Order_arr = order_arr
 
-    def push(self, Order):
-        self.Order_arr.append = Order
+    # def push(self, Order):
+    #     self.Order_arr.append = Order
 
-    def mashtabir(self, av_dedline, av_amount, av_array):
+    def mashtabir(self):
+
+        av_array = sum([x.arrayLen for x in Order_arr])
+        av_amount = sum([x.amount for x in Order_arr])
+        av_dedline = sum([x.dedline for x in Order_arr])
 
         mu = (av_dedline + av_amount + av_array) / (3 * len(Order_arr))
 
@@ -43,7 +48,14 @@ class Claster:
                 elif x.dedlin + x.amount + x.arrayLen > pivot:
                     greater.append(x)
             # Don't forget to return something!
-            return Claster.clasterization(greater) + equal + Claster.clasterization(less)  # Just use the + operator to join lists
+            return Claster.clasterization(greater) + equal + Claster.clasterization(
+                less)  # Just use the + operator to join lists
         # Note that you want equal ^^^^^ not pivot
-        else:  # You need to hande the part at the end of the recursion - when you only have one element in your array, just return the array.
+        else:  # You need to handle the part at the end of the recursion - when you only have one element in your array, just return the array.
             return array
+
+    def sort_orders(self):
+        for i in Order_arr:
+            for j in MNode:
+                if i.nodeArray[state] == j.type_:
+                    j.Order_arr.append(i)
