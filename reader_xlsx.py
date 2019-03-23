@@ -27,10 +27,12 @@ def ConvertToUnix(date):
     _class = []
     available_hours = []
     speed_per_hour = []"""
-def read_order():    
+PATH = '/home/picknick/Wallpapers/test/'
+ # i
+def read_order():
     # reading products
     prod = products()
-    rb = openpyxl.load_workbook(filename = 'D:\python\hack\DATAsetBIOCAD\product.xlsx')
+    rb = openpyxl.load_workbook(filename = PATH + 'product.xlsx')
     sheet = rb.active
     for i in range(sheet.max_row - 1):
         buf = sheet.cell(row = i + 2, column = 1).value
@@ -48,7 +50,7 @@ def read_order():
     #reading order
     prod = []
     t = Order.Order(0,0,[0])
-    rb = openpyxl.load_workbook(filename = 'D:\python\hack\DATAsetBIOCAD\order.xlsx')
+    rb = openpyxl.load_workbook(filename = PATH + 'order.xlsx')
     sheet = rb.active
     for i in range(sheet.max_row - 1):
         #buf = sheet.cell(row = i + 1, column = 1).value
@@ -61,14 +63,13 @@ def read_order():
         buf = sheet.cell(row = i + 2, column = 3).value
         prod[i].amount = int(buf)
         buf = sheet.cell(row = i + 2, column = 4).value
-        prod[i].deadline = ConvertToUnix(buf)
     return prod
 
 def read_machine():
     #reading equipment
     prod = []
     t = Machine.Machine('','', 0, 0.0)
-    rb = openpyxl.load_workbook(filename = 'D:\python\hack\DATAsetBIOCAD\equipment.xlsx')
+    rb = openpyxl.load_workbook(filename = PATH + 'equipment.xlsx')
     sheet = rb.active
     for i in range(sheet.max_row):
         prod.append(t)
@@ -79,3 +80,9 @@ def read_machine():
         buf = sheet.cell(row = i + 1, column = 4).value
         prod[i].speed = buf
     return prod
+
+
+Orders = []
+Orders = read_order()
+for x in Orders:
+    print(x.nodeArray)
