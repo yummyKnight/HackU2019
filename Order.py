@@ -7,7 +7,7 @@ class Order:
     arrayLen = int()
     number = int()
 
-    def __init__(self, amount, deadline, state, nodeArray):
+    def __init__(self, amount, deadline, nodeArray):
         self.amount = amount
         self.deadline = deadline
         self.nodeArray = nodeArray
