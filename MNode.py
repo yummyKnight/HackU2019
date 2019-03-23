@@ -18,7 +18,9 @@ class MNode:
 
     def __init__(self, type_, array):
         self.type = type_
-        self.arrayOfMachine = array
+        for i in array:
+            if i.type == self.type:
+                self.Machines.append(i)
 
     def sort_machine(self):
         for x in self.arrayOfMachine:

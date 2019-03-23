@@ -5,5 +5,7 @@ import Arrays
 import MNode
 
 types = str()
-for x in MNodes:
-    x.simulate(Orders)
+
+# for x in MNodes:
+#     x.simulate(Orders)
+    
