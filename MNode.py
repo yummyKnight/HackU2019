@@ -1,2 +1,4 @@
 class MNode:
-    pass
+    form = str()
+    arrayOfMachine = [] 
+
