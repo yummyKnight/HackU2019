@@ -1,6 +1,6 @@
 import Machine
 def move():
-
+    pass
 class MNode:
     type_ = str()
     Machines = []
