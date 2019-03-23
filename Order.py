@@ -9,4 +9,3 @@ class Order:
         self.deadline = deadline
         self.state = state
         self.nodeArray = nodeArray
-
