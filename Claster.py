@@ -3,33 +3,36 @@ import math
 
 
 class Claster:
+    # Order_arr = []
+    #
+    # def __init__(self):
+    #     pass
+    #
+    # def push(self, Order):
+    #     self.Order_arr.append = Order
+    #
+    # def mashtabir(self, av_dedline, av_amount, av_array):
+    #
+    #     mu = (av_dedline + av_amount + av_array) / (3 * len(Order_arr))
+    #
+    #     for i in range(0, len(Order_arr)):
+    #         sig = ((Order_arr[i].dedline + Order_arr[i].amount + Order_arr[i].arrayLen) - mu) ** 2
+    #
+    #     sig = sqrt(sig / (3 * len(Order_arr)))
+    #
+    #     for i in range(0, len(Order_arr)):
+    #         dedline = Order_arr[i].dedline
+    #         amount = Order_arr[i].amount
+    #         array = Order_arr[i].arrayLen
+    #
+    #         Order_arr[i].dedline = (dedline - mu) / sig
+    #         Order_arr[i].amount = (dedline - mu) / sig
+    #         Order_arr[i].arrayLen = (dedline - mu) / sig
     Order_arr = []
-
-    def __init__(self):
+    def clasterization(Order_arr): # индексы в orderNumber
         pass
-
-    def push(self, Order):
-        self.Order_arr.append = Order
-
-    def mashtabir(self, av_dedline, av_amount, av_array):
-
-        mu = (av_dedline + av_amount + av_array) / (3 * len(Order_arr))
-
-        for i in range(0, len(Order_arr)):
-            sig = ((Order_arr[i].dedline + Order_arr[i].amount + Order_arr[i].arrayLen) - mu) ** 2
-
-        sig = sqrt(sig / (3 * len(Order_arr)))
-
-        for i in range(0, len(Order_arr)):
-            dedline = Order_arr[i].dedline
-            amount = Order_arr[i].amount
-            array = Order_arr[i].arrayLen
-
-            Order_arr[i].dedline = (dedline - mu) / sig
-            Order_arr[i].amount = (dedline - mu) / sig
-            Order_arr[i].arrayLen = (dedline - mu) / sig
-
-    def clasterization(self):
+    @staticmethod
+    def qck_sort(Order_arr):
         less = []
         equal = []
         greater = []
