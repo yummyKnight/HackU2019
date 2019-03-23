@@ -16,6 +16,7 @@ def ConvertToUnix(date):
     for i in down:
         uma.append(int(i))
     return 31556926*(uma[0]-1970)+uma[1]*2629743+uma[2]*86400
+
 """class order:
     _id = []
     product_id = []
@@ -29,6 +30,7 @@ def ConvertToUnix(date):
     speed_per_hour = []"""
 PATH = '/home/picknick/Wallpapers/test/'
  # i
+=======
 def read_order():
     # reading products
     prod = products()
@@ -48,22 +50,23 @@ def read_order():
             prod.equipment_class.append(st)"""
 
     #reading order
-    prod = []
-    t = Order.Order(0,0,[0])
+    prod_1 = []
     rb = openpyxl.load_workbook(filename = PATH + 'order.xlsx')
     sheet = rb.active
     for i in range(sheet.max_row - 1):
         #buf = sheet.cell(row = i + 1, column = 1).value
         #prod._id.append(buf)
-        prod.append(t)
+        t = Order.Order(0,0,[0])
+        prod_1.append(t)
         buf = sheet.cell(row = i + 2, column = 2).value
         for i1 in range(len(products._id)):
             if buf == products._id[i1]:
-                prod[i].nodeArray =  products.equipment_class[i1]
+                prod_1[i].nodeArray =  prod.equipment_class[i1]
         buf = sheet.cell(row = i + 2, column = 3).value
-        prod[i].amount = int(buf)
+        prod_1[i].amount = int(buf)
         buf = sheet.cell(row = i + 2, column = 4).value
-    return prod
+        prod_1[i].deadline = ConvertToUnix(buf)
+    return prod_1
 
 def read_machine():
     #reading equipment
@@ -80,9 +83,4 @@ def read_machine():
         buf = sheet.cell(row = i + 1, column = 4).value
         prod[i].speed = buf
     return prod
-
-
-Orders = []
-Orders = read_order()
-for x in Orders:
-    print(x.nodeArray)
+    
