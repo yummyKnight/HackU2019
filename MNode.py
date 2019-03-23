@@ -11,10 +11,6 @@ class MNode:
             if i.type == self.type:
                 self.Machines.append(i)
 
-    def sort_machine(self):
-        for x in self.arrayOfMachine:
-            x.speed
-
     @staticmethod
     def sort(array):
         less = []
