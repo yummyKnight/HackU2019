@@ -6,6 +6,7 @@ class Order:
     iswork = bool()
     arrayLen = int()
     number = int()
+
     def __init__(self, amount, deadline, state, nodeArray):
         self.amount = amount
         self.deadline = deadline
