@@ -1,6 +1,17 @@
 import Machine
+import Order
+
+
+def move(Order):
+    if MNode.type_ == Order.nodeArray[state]:
+        for i in range(MNode.k, len(MNode.Order_arr)):
+            if MNode.Order_arr[i - 1].number < Order.number < MNode.Order_arr[i].number:
+                break
+            MNode.Order_arr.insert(i, Order)
+
 
 class MNode:
+    Order_arr = []
     type_ = str()
     Machines = []
     k = int()
@@ -44,6 +55,3 @@ class MNode:
                     orders(self.k).state += 1
                     move(orders(self.k))
                     i.state = 0
-
-def move():
-    pass
