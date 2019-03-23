@@ -3,7 +3,7 @@ import Order
 
 
 def move(Order):
-    if MNode.type_ == Order.nodeArray[state]:
+    if MNode.type_ == Order.nodeArray[Order.state]:
         for i in range(MNode.k, len(MNode.Order_arr)):
             if MNode.Order_arr[i - 1].number < Order.number < MNode.Order_arr[i].number:
                 break
@@ -21,10 +21,6 @@ class MNode:
         for i in array:
             if i.type == self.type:
                 self.Machines.append(i)
-
-    def sort_machine(self):
-        for x in self.arrayOfMachine:
-            x.speed
 
     @staticmethod
     def sort(array):
