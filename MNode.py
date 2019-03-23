@@ -12,6 +12,7 @@ class MNode:
     def sort_machine(self):
         for x in self.arrayOfMachine:
             x.speed
+
     @staticmethod
     def sort(array):
         less = []
