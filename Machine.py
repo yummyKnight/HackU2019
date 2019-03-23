@@ -1,6 +1,8 @@
 class Machine:
-    id = int()
-    form = str()
-    speed = int()
     history = []  # dinamic array of logs
-    state = bool()
+    state = false
+
+    def __init__(self, id, type, speed, kremont):
+        self.id = id
+        self.type = type
+        self.speed = speed * kremont
