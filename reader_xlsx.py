@@ -31,7 +31,7 @@ def ConvertToUnix(date):
 def read_order():
     # reading products
     prod = products()
-    rb = openpyxl.load_workbook(filename = 'D:\python\hack\DATAsetBIOCAD\product.xlsx')
+    rb = openpyxl.load_workbook(filename = r'C:\Users\USer\Desktop\product.xlsx')
     sheet = rb.active
     for i in range(sheet.max_row - 1):
         buf = sheet.cell(row = i + 2, column = 1).value
@@ -48,7 +48,7 @@ def read_order():
 
     #reading order
     prod_1 = []
-    rb = openpyxl.load_workbook(filename = 'D:\python\hack\DATAsetBIOCAD\order.xlsx')
+    rb = openpyxl.load_workbook(filename = r'C:\Users\USer\Desktop\order.xlsx')
     sheet = rb.active
     for i in range(sheet.max_row - 1):
         #buf = sheet.cell(row = i + 1, column = 1).value
@@ -68,19 +68,15 @@ def read_order():
 def read_machine():
     #reading equipment
     prod = []
-    t = Machine.Machine('','', 0, 0.0)
-    rb = openpyxl.load_workbook(filename = 'D:\python\hack\DATAsetBIOCAD\equipment.xlsx')
+    rb = openpyxl.load_workbook(filename = r'C:\Users\USer\Desktop\equipment.xlsx')
     sheet = rb.active
-    for i in range(sheet.max_row):
+    for i in range(sheet.max_row - 1):
+        t = Machine.Machine('', '', 0, 0.0)
         prod.append(t)
-        buf = sheet.cell(row = i + 1, column = 1).value
-        prod[i]._id = buf
-        buf = sheet.cell(row = i + 1, column = 2).value
-        prod[i]._type = buf
-        buf = sheet.cell(row = i + 1, column = 4).value
+        buf = sheet.cell(row = i + 2, column = 1).value
+        prod[i].id_ = buf
+        buf = sheet.cell(row = i + 2, column = 2).value
+        prod[i].type_ = buf
+        buf = sheet.cell(row = i + 2, column = 4).value
         prod[i].speed = buf
     return prod
-
-test = read_order()
-for i in range(10):
-    print(test[i].nodeArray)

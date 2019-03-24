@@ -2,8 +2,8 @@ class Order:
     nodeArray = set()
     amount = int()
     deadline = int()
-    state = int()
-    iswork = bool()
+    state = 1
+    iswork = int()
     arrayLen = int()
     number = int()
 

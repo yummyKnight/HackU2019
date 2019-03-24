@@ -1,4 +1,4 @@
-import Order
+from Order import *
 from math import sqrt
 from MNode import *
 
@@ -32,8 +32,32 @@ class Claster:
             self.Order_arr[i].amount = (dedline - mu) / sig
             self.Order_arr[i].arrayLen = (dedline - mu) / sig
 
-    def clasterization(self): # индексы в orderNumber
+    def clasterization(self):  # индексы в orderNumber
         pass
+
+    @staticmethod
+    def sort_orders(orders, Mnodes):
+        f = open('versual.txt', 'w')
+        xg = 0
+        for i in range(100):
+            for j in range(100):  # MNodes = array of Node
+                f.write(orders[i].nodeArray[orders[i].state - 1]+" =? "+Mnodes[j].type_)
+                if orders[i].nodeArray[orders[i].state - 1] in Mnodes[j].type_:
+                    xg+=1
+                    print(str(i) + " " + str(j) + "  " + str(orders[i].amount))
+                    f.write("  Видимо да")
+                    buf = Order.Order(orders[i].amount, orders[i].deadline, orders[i].nodeArray)
+                    Mnodes[j].Order_arr.append(buf)
+                f.write("\n")
+        print(xg)
+        return Mnodes
+        # for i in orders:
+        #     for j in Mnodes:  # MNodes = array of Node
+        #         f.write(i.nodeArray[i.state - 1]+" =? "+j.type_)
+        #         if i.nodeArray[i.state - 1] in j.type_:
+        #             f.write("  Видимо да")
+        #             j.Order_arr.append(i)
+        #         f.write("\n")
 
     @staticmethod
     def qck_sort(Order_arr):
@@ -41,23 +65,18 @@ class Claster:
         equal = []
         greater = []
         if len(Order_arr) > 1:
-            pivot = Order_arr[0].dedlin + Order_arr[0].amount + Order_arr[0].arrayLen
+            pivot = Order_arr[0].deadline
             for x in Order_arr:
-                if x.dedlin + x.amount + x.arrayLen < pivot:
+                if x.deadline < pivot:
                     less.append(x)
-                elif x.speed == pivot:
+                elif x.deadline == pivot:
                     equal.append(x)
-                elif x.dedlin + x.amount + x.arrayLen > pivot:
+                elif x.deadline > pivot:
                     greater.append(x)
             # Don't forget to return something!
-            return Claster.clasterization(greater) + equal + Claster.clasterization(
-                less)  # Just use the + operator to join lists
-        # Note that you want equal ^^^^^ not pivot
+            return Claster.qck_sort(greater) + equal + Claster.qck_sort(less)
+            # Just use the + operator to join lists
+            # Note that you want equal ^^^^^ not pivot
         else:  # You need to handle the part at the end of the recursion - when you only have one element in your array, just return the array.
             return Order_arr
 
-    def sort_orders(self):
-        for i in self.Order_arr:
-            for j in MNode: # MNode = array of Node
-                if i.nodeArray[i.state] == j.type_:
-                    j.Order_arr.append(i)
