@@ -11,16 +11,14 @@ def move(Order):
 
 
 class MNode:
-    Order_arr = []
     type_ = str()
-    Machines = []
     k = 0
-
     def __init__(self, type_, array):
+        self.Machines = []
+        self.Order_arr = []
         self.type_ = type_
         for i in array:
             if i.type_ == self.type_:
-
                 self.Machines.append(i)
 
     @staticmethod
@@ -70,6 +68,6 @@ def CreateKnots(machines):
         if (x.type_ in Types) == False:
             Types.append(x.type_)
     for x in range(len(Types)):
-        buf=MNode(Types[x], machines)
+        buf= MNode(Types[x], machines)
         Mnodes.append(buf)
     return Mnodes

@@ -2,11 +2,10 @@ class Order:
     nodeArray = set()
     amount = int()
     deadline = int()
-    state = 1
+    state = 0
     iswork = int()
     arrayLen = int()
     number = int()
-
     def __init__(self, amount, deadline, nodeArray):
         self.amount = amount
         self.deadline = deadline

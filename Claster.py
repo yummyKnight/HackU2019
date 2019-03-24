@@ -39,11 +39,11 @@ class Claster:
     def sort_orders(orders, Mnodes):
         f = open('versual.txt', 'w')
         xg = 0
-        for i in range(100):
-            for j in range(100):  # MNodes = array of Node
+        for i in range(len(orders)):
+            for j in range(len(Mnodes)):  # MNodes = array of Node
                 f.write(orders[i].nodeArray[orders[i].state - 1]+" =? "+Mnodes[j].type_)
                 if orders[i].nodeArray[orders[i].state - 1] in Mnodes[j].type_:
-                    xg+=1
+                    xg += 1
                     print(str(i) + " " + str(j) + "  " + str(orders[i].amount))
                     f.write("  Видимо да")
                     buf = Order.Order(orders[i].amount, orders[i].deadline, orders[i].nodeArray)
@@ -58,6 +58,11 @@ class Claster:
         #             f.write("  Видимо да")
         #             j.Order_arr.append(i)
         #         f.write("\n")
+        # for i in orders:
+        #     for j in Mnodes: # MNode = array of Node
+        #         if i.nodeArray[i.state] == j.type_:
+        #             j.Order_arr.append(i)
+        # return Mnodes
 
     @staticmethod
     def qck_sort(Order_arr):
