@@ -44,15 +44,15 @@ class MNode:
     def simulate(self, orders):
         for i in self.Machines:
             if i.state == 0:
-                orders(self.k).iswork = 1
-                i.state = orders(self.k).amount
+                orders[self.k].iswork = 1
+                i.state = orders[self.k].amount
                 self.k += 1
             else:
                 i.state -= i.speed
                 if i.state <= 0:
-                    orders(self.k).iswork = 0
-                    orders(self.k).state += 1
-                    move(orders(self.k))
+                    orders[self.k].iswork = 0
+                    orders[self.k].state += 1
+                    move(orders[self.k])
                     i.state = 0
 
 
@@ -68,6 +68,6 @@ def CreateKnots(machines):
         if (x.type_ in Types) == False:
             Types.append(x.type_)
     for x in range(len(Types)):
-        buf= MNode(Types[x], machines)
+        buf = MNode(Types[x], machines)
         Mnodes.append(buf)
     return Mnodes

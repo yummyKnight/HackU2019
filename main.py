@@ -4,6 +4,7 @@
 
 from Claster import *
 from reader_xlsx import *
+from MNode import *
 
 types = str()
 Orders_read = read_order()
@@ -17,6 +18,8 @@ for x in Mnodes[0].Order_arr:
 f = open('text1.txt', 'w')
 for x in Mnodes[1].Order_arr:
      f.write(str(x.amount)+'\n')
+for x in Mnodes:
+     x = x.simulate(Orders)
 # for i in range(len(Mnodes)):
 #      print(len(Mnodes[i].Order_arr))
 # #
