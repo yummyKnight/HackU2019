@@ -2,7 +2,7 @@ class Order:
     nodeArray = set()
     amount = int()
     deadline = int()
-    state = 0
+    state = int()
     iswork = int()
     arrayLen = int()
     number = int()
@@ -11,3 +11,5 @@ class Order:
         self.deadline = deadline
         self.nodeArray = nodeArray
         self.arrayLen = len(nodeArray)
+        self.iswork = 0
+        self.state = 0

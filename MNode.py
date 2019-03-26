@@ -12,11 +12,12 @@ def move(Order):
 
 class MNode:
     type_ = str()
-    k = 0
+     k = int()
     def __init__(self, type_, array):
         self.Machines = []
         self.Order_arr = []
         self.type_ = type_
+        self.k=0
         for i in array:
             if i.type_ == self.type_:
                 self.Machines.append(i)
@@ -41,18 +42,21 @@ class MNode:
         else:  # You need to hande the part at the end of the recursion - when you only have one element in your array, just return the array.
             return array
 
-    def simulate(self, orders):
+    def simulate(self):
         for i in self.Machines:
+            if self.k == len(self.Order_arr):
+                break
+
             if i.state == 0:
-                orders(self.k).iswork = 1
-                i.state = orders(self.k).amount
+                self.Order_arr[self.k].iswork = 1
+                i.state = self.Order_arr[self.k].amount
                 self.k += 1
             else:
                 i.state -= i.speed
                 if i.state <= 0:
-                    orders(self.k).iswork = 0
-                    orders(self.k).state += 1
-                    move(orders(self.k))
+                    self.Order_arr[self.k].iswork = 0
+                    self.Order_arr[self.k].state += 1
+                    move(self.Order_arr[self.k])
                     i.state = 0
 
 
